@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Idea | NotionX</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function saveIdea() {
+      let title = document.getElementById("title").value;
+      let desc = document.getElementById("desc").value;
+
+      if (title && desc) {
+        let ideas = JSON.parse(localStorage.getItem("ideas")) || [];
+        ideas.push({title: title, desc: desc});
+        localStorage.setItem("ideas", JSON.stringify(ideas));
+        alert("Idea saved! Go to Discover page to view.");
+        document.getElementById("title").value = "";
+        document.getElementById("desc").value = "";
+      } else {
+        alert("Please fill in all fields!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="login.html">Log In / Sign Up</a>
+    <a href="upload.html">Upload Idea</a>
+    <a href="discover.html">Discover</a>
+    <a href="featured.html">Featured</a>
+    <a href="inspiration.html">Inspiration</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Upload Your Startup Idea</h2>
+      <form onsubmit="event.preventDefault(); saveIdea();">
+        <input id="title" type="text" placeholder="Startup Idea Title"><br>
+        <textarea id="desc" placeholder="Describe your idea..."></textarea><br>
+        <button type="submit">Save Idea</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

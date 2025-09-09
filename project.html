@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project | NotionX</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.onload = function() {
+      let params = new URLSearchParams(window.location.search);
+      let title = params.get("title");
+      document.getElementById("project-title").innerText = title || "Project Title";
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="login.html">Log In / Sign Up</a>
+    <a href="upload.html">Upload Idea</a>
+    <a href="discover.html">Discover</a>
+    <a href="featured.html">Featured</a>
+    <a href="inspiration.html">Inspiration</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2 id="project-title"></h2>
+      <p><strong>Description:</strong> This project page will show idea details.</p>
+      <h3>Comments</h3>
+      <textarea placeholder="Write your comment..."></textarea><br>
+      <button type="button">Post Comment</button>
+
+      <h3>Collaborate</h3>
+      <p><a href="mailto:founder@email.com">Email the founder</a></p>
+    </section>
+  </main>
+</body>
+</html>

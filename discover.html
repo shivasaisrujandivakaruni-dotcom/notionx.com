@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discover | NotionX</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.onload = function() {
+      let ideas = JSON.parse(localStorage.getItem("ideas")) || [];
+      let container = document.getElementById("ideas-container");
+
+      if (ideas.length === 0) {
+        container.innerHTML = "<p>No ideas yet. Upload one!</p>";
+      } else {
+        ideas.forEach((idea, index) => {
+          let card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+            <h3>${idea.title}</h3>
+            <p>${idea.desc}</p>
+            <a href="project.html?title=${encodeURIComponent(idea.title)}">View Project</a>
+          `;
+          container.appendChild(card);
+        });
+      }
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="login.html">Log In / Sign Up</a>
+    <a href="upload.html">Upload Idea</a>
+    <a href="discover.html">Discover</a>
+    <a href="featured.html">Featured</a>
+    <a href="inspiration.html">Inspiration</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+
+  <main>
+    <h2>Discover Ideas</h2>
+    <div id="ideas-container"></div>
+  </main>
+</body>
+</html>
